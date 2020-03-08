@@ -1,0 +1,96 @@
+22/09/2017
+
+MHPC day 5
+
+echo 21*392.3 | bc
+#floating point calculation on bash with "bc"
+
+awk '{x=$1; y=$2; print sqrt(x**2 + y**2)}'
+#awk can do more complicated calculations
+#awk does not know "int", everything is "float"
+
+uniq -d
+sort -u
+#kill duplications
+
+#in awk $0 means the whole line
+#NF means number of fields
+#default separator is "space", called FS
+
+head [filename]
+tail [filename]
+
+awk 'BEGIN ... '
+#means before reading lines
+
+awk 'BEGIN {getline;} ...'
+#get rid of the first line
+
+awk 'BEGIN {FS=";"} OFS="," {print $0}' red_wine.csv | head -n 3
+awk 'BEGIN {FS=";"} OFS="," {$1=$1;print $0}' red_wine.csv | head -n 3
+#replace ";" into ",", $1=$1 is updating the lines, update is needed,
+else, use sed to implement the same operation faster
+
+awk '.... if([condition]) [operations] ...'
+awk '.... if([condition]) [operations] else [operations] ...'
+
+#WHAT AWK DOES LOGICALLY?
+#awk '
+#BEGIN{start some initialization settings}
+#going into loop over lines automatically
+#{write your condition if(....)
+	or your loop inside one line for(...)
+  write your options;options;options
+#}
+#END{closing up}
+#'
+#| use pipeline
+#> or >> [whatever file]
+
+
+#awk arrays
+BEGIN{x[key]=[value];...;..}
+
+BEGIN{x[1]="hi";x[2]="mhpc"}
+BEGIN{x["key1"]="hi";x["key2"]="mhpc"}
+
+awk 'idx[$1]++' [file]
+#print out repeated lines
+
+
+#GIT
+
+#object database
+#dictionary with hash table
+#content -> type,size -> key (SHAL)
+#.git/obejcts/../....
+#delta modifications can be compressed
+
+#4 object types
+#blob, tree, commit, tag
+
+#index
+#->staging area
+#pre-commit area
+#git add: stage file to the index
+#git commit -a: ignore un-traced files not in index yet
+
+#fast forward merge
+#go ahead
+
+#merge two branches: 3-way merge
+
+#git mergetool
+
+#rebase: change the base
+
+#git push works only fast forward merge
+
+#basci gitflow
+#create stage review commit
+
+
+#git merge/rebase -i
+interative merge
+then use s to squarsh multi-commits
+

@@ -1,0 +1,193 @@
+20/08/2017
+MHPC day 3
+
+#more BASH
+
+#two types of scripts
+#one for run
+#one for sourced
+
+source [file] == . [file]
+
+#executable script start with (#!)
+#it opens a subshell to run the executable
+#if environment variable is defined inside executable
+#other shells don't know, since from executable to 
+#environment is one way down
+#thus, it's necessary to define source scripts, which
+#is available equally to all shells
+
+#sourcing a file dosn't need to open a subshell
+
+#(#!/bin/bash)
+#write contents
+#chmod +x(add executable permission) or u+x(unique user) [script]
+
+#(./)
+#to run scripts in current directory
+#or write down the full path to the script
+#if the dirrectory is not in sourced PATH
+
+#feed a script with unique environment variable
+#redefine variable in command which call a script
+#ie.,$ Var=9 ./return_var.sh
+
+#bash is one kind of shell
+#there are zsh, csh, sh and bash etc...
+
+#in bash you can write 
+comamnd1 && command2
+#if command1 exit with 0, run command2
+command ; command
+#this is not safe
+
+#bash carries all commands nonstop one by one
+#even if errors come out
+
+#in bash everything is string
+#if write 2*2, it takes '2*2'
+#to perform c style calculations 
+$((....))
+#the dollar sign returns result calculated inside ((...))
+
+#asign a variable string by a output of a command
+a=`...`
+#a is a string get `...`
+a=$(...)
+#$(...) can be nested, like
+a=$(...$(...))
+#for good formating, use "..."
+echo "$a"
+#do not use single quote '...', since it means string '...'
+
+#bash array
+a=(2 3 4 5)
+b=(2
+   3
+   4
+   5)
+#return nth element in array
+${a[n]}
+#return number of elements in array
+${#a[*]} 
+${#a[@]}
+#return all elements
+${a[*]}
+
+echo -n ...; echo ...
+# -n means no new line
+
+#fast initial since bash 3+
+aa=({0..10})
+aa=({0..10}{a..z})
+aa=({0..10} {a..z})
+aa=({A..Z})
+
+#test(mind the space)
+#man test for more instructions
+[ conditions ]
+a=6
+b=7
+[ $a -eq $b ]
+[ ... ] && [ ... ]
+#be careful with different writing styles
+#always check man test first!
+
+#if
+ERROR_7=7
+if [ ... ]
+ .....
+ .....
+ echo "wrong"
+ exit $ERROR_7
+fi
+#
+if [ ... ]
+ ....
+elif [ ... ]
+ ....
+fi
+#
+
+#for
+for arg in ...
+do
+  ...
+done
+
+#example
+new_path=$(sed 's/:/ /g' <<<$PATH)
+for dir in $new_path
+do
+ echo "I will work in: $dir"
+done
+
+#pipe does no writing on disk
+c1 | c2
+
+#alias
+
+#functions
+#functions defined in bash script can only echo things out
+function name
+{
+}
+
+name ()
+{
+}
+
+#input for scripts
+[script name] [input 1] [input 2] ... [input n]
+#inputs are taken as strings
+#doing non int/string calculation in bash is not recommended
+
+echo $(basename $0)
+#spit the name of script
+
+#check arguments manually
+
+echo $#
+arguments numbers (including basename) 
+
+$* or $@
+#means all parameters
+
+#example
+a=0
+for ele in $@
+do
+echo argument '$'$a is $ele
+(( ++a ))
+done
+
+#example
+a=1
+while [ $# -gt 0 ]
+do
+echo argument '$'$a is $1
+shift
+((++a))
+done
+
+#with shift, $# and $@ are all shifted forward
+
+#case
+case "var" in
+0)
+echo "option 0"
+;;
+"ciao")
+echo "option 1"
+;;
+1|2)
+echo "1 or 2"
+;;
+*)
+echo "default case"
+;;
+esac
+
+#in bash 4+, use ;& to end each case
+
+

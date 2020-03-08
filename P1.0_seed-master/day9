@@ -1,0 +1,48 @@
+28/09/2017
+
+MHPC day 9
+
+DEBUGGEING
+
+-g or -ggdb
+#enable debugging
+
+-O0
+#no optimization
+
+#or during compiling 
+gdb ./[exe] <[file]
+
+#two ways to start gdb
+
+start <[command line options]
+
+next or n
+#go to next line
+
+print [...]
+#print vairables
+#p is shortcut for print
+
+whatis [...]
+#get variable type
+
+b [file] [line #]
+#offer a break point
+#then say run
+
+continue or c
+#to next break point
+
+up and down
+#jump through functions
+
+bt
+#
+
+#in order to use gdb, need -g in compiling
+
+valgrind --leak-check=full --track-origin=yes [command line]
+
+
+

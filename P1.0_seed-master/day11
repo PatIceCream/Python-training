@@ -1,0 +1,44 @@
+03/10/2017
+
+MHPC day 11
+
+C++
+
+NUMERICAL ANALYSIS
+
+sign | exponent | maindisse
+
+Vector space
+
++, X + X -> X
+*, X*R -> X
+
+finite dim: R^n
+infinite dim: C^0[0,1]
+
+F(x,d) = 0
+d: data
+x: solution
+
+F(G(d),d) = 0 -> x = G(d), if solution is unique
+
+1) for any d, there exists unique solution
+2) F depends continuously on d
+
+if 1) and 2), the problem F is stable
+
+relative condition number of the problem
+
+K = sup |delta x|*|d|/(|x|*|delta d|)
+
+consistency of problem
+
+F_n(x_n,d) = 0
+
+F_n(x,d)->0, when n->inf, strong consistency
+
+LAX-RICHT theorem
+
+finite difference would be dangerous at high resolution
+subtracting would be dangerous when two values are close
+

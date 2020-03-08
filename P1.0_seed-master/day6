@@ -1,0 +1,68 @@
+25/09/2017
+
+MHPC day 6
+
+#C
+
+#source file ->[compiler] -> object ->[link] -> *.out
+
+#gcc
+#gnu compiler collection
+
+#clang
+
+#recommended reading
+#C programming language
+#Programming in C
+
+#compiling
+gcc [filename]
+gcc [filename] -o [executable name]
+gcc -o [executable name] [filename]
+
+sizeof(...)
+#return size of variable
+
+#check printf/scanf format online
+printf
+scanf
+
+#examples
+scanf("inset to int %i%i",&a,&b);
+printf("%i and %i are int",a,b);
+
+#./[executable] <[params file]
+scanf will read from standard input
+
+fprintf(stdout, "...");
+fprintf(stderr, "...");
+#formated printf
+#to two channels
+
+#examples
+./[executable] <[input file] 1>/dev/null 2>[err log]
+
+#compling options
+-std=
+
+#in main function, the final return can be found by
+echo $?
+
+#stark and heap
+start automatically allocate and pop memory required
+heap do things manually
+
+#example
+#include<stdlib.h>
+int * alloc(const int size){
+	int *ptr;
+	ptr=malloc(sizeof(int)*size);
+	return ptr;
+}
+
+#malloc works in heap instead of stark
+#use free([pointer]) to de-allocate
+#heap preserve memory until turn-off computer
+
+#valgrind 
+

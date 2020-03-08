@@ -1,0 +1,120 @@
+19/08/2017
+MHPC day 2
+
+#GIT
+#version control
+
+#create git repository
+#start with creating a directory
+git init
+
+git config --global user.name “[name]”
+git config --global user.email “[online user_name]”
+git config --global core.editor [editor name]
+
+git status
+
+git add [filename]
+
+#stage
+#there is a staging area, 
+#when we do git add, 
+#we put file into staging area from working environment
+
+ls -R .git
+#to check in detail the git tree
+
+working env    staging area        repository
+     |              |               |
+      --> git add -->
+                     -> git commit ->
+      <------- git checkout ---------       
+
+#each commit is remembered forever
+#each commit points backward to the previous commit
+
+git diff
+git diff [filename]
+#check the difference before commit
+
+untracked       unmodified          modified          staged
+   |               |                    |                |
+    -------------> git add ----------------------------->
+	            <-------------git commit -------------
+                    ----> edit -------->
+                                         --> git add --->
+                    <--- commit -a -----
+
+git log
+git reflog
+#check the commit history
+
+#head
+#a pointer to a commit
+
+
+#branch
+#also a pointer
+
+git checkout [pointer(branch_name or commit ID of current branch)]
+#coming back to [pointer] position
+#[branch_name] is always at the last position in one branch
+
+git branch [branch name] [starting point(default is HEAD)]
+#a new branch can be created on any previous commit position
+
+git branch
+#show local branches
+
+#use git checkout discard unwanted modifications, safer than git stash
+
+#how to use git stash?
+#If you want to move to somewhere else, 
+#then come back but still recover un-committed modifications,
+#git stash -> move to elsewhere (git checkout) -> come back -> git stash pop
+
+git log --oneline --graph --all --decorate
+# get a good view on git tree
+
+git mv
+#renaming/moving files in git
+
+git rm
+#remove files in git
+
+git revert HEAD~n
+#reverse the previous n commits by creating a new commit
+
+git reset --hard/soft HEAD~n
+#reverse the previous n commits by forgeting previous commits
+#but not totally lost
+#still get commit ID by git reflog
+
+git merge [branch_name]
+#merge from [branch_name] to current branch
+git branch -d [branch_name]
+#delete branch
+
+#sync to remote repo
+
+git remote add [remote_name(should be different from all current ones you have)] [remote_address]
+#add remote repo
+
+git push [remote_name] [branch_name]
+
+git fetch [remote_name] [remote_address] + git merge [what u fetched]
+#but, in case you want to get update from original(not forked) repo, 
+#first add original remote, then fetch and merge your own repo
+
+git remote -v
+#have a look at your remotes
+
+git clone [...] [local alias of remote name]
+
+# delete branch locally and remotely
+git branch -d [branch name]
+git push origin --delete [branch name]
+
+
+
+

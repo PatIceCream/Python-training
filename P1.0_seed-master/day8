@@ -1,0 +1,95 @@
+27/09/2017
+
+MHPC day 8
+
+FORTRAN
+
+from column 1 to 132
+
+do not distinguish uper/lower cases
+
+variable begin by i,j,k,l,m,n is integer
+if not writing implicit none
+
+! comment the rest of the line
+
+; instructuion separator on the same line
+
+& instruction continue the line
+
+#types
+
+character*5 :: c !character with length 5
+
+character(LEN=5) :: str !character with length 5
+
+integer :: i
+
+integer,dimension(5) :: i
+
+real :: r=1.e2 !float
+
+logical !
+
+complex:: c=(2.,4.)
+
+doubleprecision:: f=1.d2
+
+
+integer -> 4 byte -> 32 bits
+
+#decorator in vairable define
+
+implicit none
+ ,parameter::  !means constant variable
+
+integer,parameter::n_points=200
+
+#calculationg rule
+
+real 32 bits
+sign 1bit
+significand 23bit
+exponent 8
+base is always 2
+
+# FORTRAN WEITING RULE
+
+program [name]
+
+implicit none
+use::[module name]
+
+integer,parameter wp=4 ! simple precision 4bytes
+integer,parameter wp=8 ! double precision 8bytes
+integer,parameter wp=10 ! extra double precision 10bytes
+
+real(kind=wp)::r=...
+
+stop 'stop here'
+
+# FORTRAN module
+
+end program [name]
+
+module [name]
+implicit none
+
+
+end module
+
+# subroutine
+
+subroutine [name] (a,b,c)
+implicit none
+real,intent(in)
+real,intent(out)
+real,intent(inout)
+
+
+module [name]
+implicit none
+[declare variables]
+contains
+
+end module [name]

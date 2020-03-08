@@ -1,0 +1,74 @@
+26/09/2017
+
+MHPC day 7
+
+#compiling with library
+gcc -shared -fpic prints.c -o libprints.so
+gcc main.c -lprints -L. -Wl,-rpath,$PWD
+
+-g
+#gdb debugger
+
+-Wall
+#warnings
+
+#[compiler] [source1] [source2] ... -o [executable name]
+
+gcc src1.c src2.c -o executable
+
+gcc -c src1.c
+gcc -c src2.c
+gcc src1.o src2.o -o executable
+
+#gcc alone will call linker!!!
+
+#structure in c/c++
+
+struct [struct name]{
+[variables claims]
+struct [struct name]* ptr;
+};
+
+typedef struct{
+....
+}[struct name];
+
+#binary tree
+struct node{
+    int key;
+    char val;
+    struct node* left;
+    struct node* right;
+};
+
+
+#makefile
+
+include/*.h
+src/*.c
+obj/*.o
+lib/*.so
+
+#a makefile has tree ingredients
+
+target: dependencies
+[tab]	action
+[tab]	action
+
+#each action in each line is run in a different shell
+
+src/student.c -> src/student.o
+src/date.c -> src/date.o
+main.c -> main.o
+
+$^ refers to all the dependencies
+
+data.o: src/data.c src/data.h
+	gcc -c src/data.c
+	    -o src/data.o
+	    $(CFLAGS)
+
+$@ refers to the target
+$< the first element in dependencies
+
+#use make -n to check

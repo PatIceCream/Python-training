@@ -1,0 +1,52 @@
+05/10/2017
+
+MHPC day 12
+
+lax-richtmyer theorem
+
+-----------
+problem f:
+best approximation p, for f in X (infinite dim), 
+from M (in finite dim n) means:
+
+p in M,
+|p-f| < |q-f|, for any q in M.
+
+if X is strict convex: |u|=|v|, u!=v, linear combination of u and v has
+mode smaller than |u|
+
+------------
+interplation operation L
+L(f) = P^n
+L: X -> P^n
+
+1) L(P) = P
+2) given n+1 points, L_f(x_i) = f(x_i)
+
+P^n = M = spam{v_i}^n
+means that, q = q^i*v_i for any q in P^n
+
+q = L(f) => q = q^i*[v_i(x_j)] = f(x_j)
+
+B_ji q^i = f(x_j)
+B_ji = v_i(x_j)
+
+condition number:
+K(B) = |B|*|inv(B)|
+B = I gives smallest K(B)
+
+1) Lagrangian polymonial interpolation
+L(f) = v^i(f)v_i(x)
+v^i(v_j) = delta_ij
+f(x_j) = v^j(f)
+[google it]
+
+2) with given v_i form instead of Lag. interp.  poly.
+
+
+the two above approach are identical in condition number
+however, with closer sample points, Lag. poly. has problems, not stable
+
+error of interpolation estimation
+|L^n(f)-f| = f^{n+1}/(n+1)!
+
