@@ -1,0 +1,68 @@
+09/10/2017
+
+code optimization
+
+robustness
+
+how to start
+1) plot a map of the code, obtain a dynamical call tree
+gprof
+google perftools
+valgrind
+perf
+
+with gprof
+compile with -pg
+profiling info will be in gmon.out
+gprof [executable name]
+to get a png map plot
+gprof [executable name] | gprof2dot.py | dot -T png -o ...png
+
+with gperftools
+1) -lprofiler
+2) add profiler at run time
+LD_PRELOAD="..../libprofiler.so"
+
+code coverage
+Gcov is a source code coverage analysis and statement-by-statement profiling tool
+-g --coverage
+will get *.gcda file
+
+
+#timinng
+1) wall-clock time
+2) system-time
+3) process user-time
+
+c/c++ 
+Gettimeofday(..)
+clock_t clock()
+clock_gettime(...)
+getrusage(...)
+
+
+
+# gdb advanced tips
+# exam memory of x
+
+x/16db (char*)x
+
+help x/
+
+# get code runs faster
+-O3 -fprofile-generate
+-O3 -fprofile-use
+
+# code runs faster with predictable pattern
+# avoid if conditions in loops
+# use smarter loop
+
+
+# inspect your cache
+cd /sys/devices/system/cpu/cpu0/cache/index0/
+cat id
+cat level
+cat type
+cat number_of_sets
+cat shared_cpu_list
+cat size

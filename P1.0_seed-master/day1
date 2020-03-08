@@ -1,0 +1,294 @@
+18/09/2017
+MHPC day 1
+
+#introduction
+-----------------------
+lectures to Feb
+Feb to May, optional lectures
+
+1st semester
+programming environment
+architectures for HPC
+OOP
+Parallel 
+Numerical ana
+…
+
+15 credits in 2nd semester
+parallel FFT
+adaptive meshes
+MCMC
+…
+decide before Feb.
+
+
+#basic intro to linux and unix
+----------------------
+unix evolution (wikipedia)
+“the unix programming environment”
+
+multi-tasking, multiuser
+user: uid process pid
+user in group gid
+
+file system
+root -> /
+
+system architecture
+hardware layer, RAM/HDD/CUP…
+kernel core of OS, provides low level services
+upper layer, shell, a interface to kernel, takes commands from user and executes kernel’s function
+utilities, attached above shell 
+Linux is a Kernel
+
+Linux distribution
+Fedora, Ubuntu, Debian,…
+we use CentOS-6.x/7.x
+
+philosophy, anything either a file or a process
+all programs accept input from stdin, weite stdout, stderr
+Pipes connect programs I/O like plumbing
+strict separation between privileged kernel space and user space
+
+user applications <—> GNU C library (glibc) <—> Kernel
+
+linux pseudo(or virtural)-filesystem
+/proc
+/sys
+
+basic linux commands
+df: diskfree
+chown,chmod: change permission
+swap is strictly forbbiden
+
+top(htop): occupation of cpu
+free:
+vmstat:
+
+BASH, Bourne Again Shell
+
+#BASH
+——————————
+echo $SHELL
+“/bin/bash”
+echo $BASH_VERSION
+4.x is preferred
+
+echo “hello world”
+bash itself does only integer operations
+
+ls -a -l, -al, -t, -rt
+symbols on display
+“d(dir or not) rwx(owner permission) rwx(group permission) rwx(others permission)”
+
+man [command]
+
+du -sh [file/dir name]
+
+du -sh .
+current directory size
+
+pwd
+print working directory
+
+chown
+change owner
+
+chmod
+change permissions,
+
+chmod g+w [name]
+give group user write permission
+
+~ 
+is /home/your_home_directory
+
+whoami
+
+cd 
+change directory
+
+PS1
+variable printed in the beginning of each command line
+
+PS1=‘$ ‘
+change the PS1 into $
+
+${VAR_NAME}, $VAR_NAME
+use environment variable in shortcut
+
+$$, ${$}
+processor ID currently using by the shell
+
+top
+
+kill [PID]
+kill one process
+
+in bash, a string corresponds 0 integer
+if say,
+a=string
+b=1
+echo $((a+b))
+you get 1
+
+export
+display all environmental variables
+
+history
+read from home, historical commands
+
+1bite contains 8bits
+bits = 1 or 0
+
+rm, breaks the link to physical memory,
+no way to recover once link is destoried
+
+rm -rI
+remove folder interactively
+
+file [file name]
+linux system can read the unique first mark from a file,
+which tells what file it is
+
+wild cart *, ?
+
+mkdir -p [dir]/[subdir]…
+
+echo [something] > [filename]
+from std output(channel 1) to a file, if file doesn’t exist, automatically create, if file exist, rewrite it
+
+echo [something] >> [filename]
+from std output to a file, if file exist, append [something] in the end
+
+time
+/usr/bin/time (more reliable)
+time write to channel 2 and display, it will not mess up with std output channel
+
+/usr/bin/time echo foo > foo.txt
+/usr/bin/time echo foo 2> foo.txt
+/usr/bin/time echo foo 1> foo.txt 2> bar.txt
+/usr/bin/time echo foo &> foo.txt
+
+echo $?
+echo the status result of last command executed
+
+^R
+reverse searching commands
+
+history
+![previous command ID]
+re-execute previous command
+
+!!
+last command according to history
+
+
+#HANDS ON PART II
+——————————
+find [starting directory path] -name ‘[name]’
+find files with [name] start from given directory
+
+find [starting directory path] -name ‘[name]’ 2>/dev/null
+put errors from find command to trash
+
+wc -l *.txt
+word count 
+
+#USING PIPES:
+
+wc -l *.txt | sort -n
+wc -l *.txt | sort -nr
+wc -l *.txt | sort -n | head -n 5
+
+wc -l *[AB].txt
+word count *.txt ending with either A or B
+
+wc -l *{A.,B.}txt
+word count as above but wiht *A.txt comes first *B.txt later
+
+wc -l *{,A.,B.}txt
+word count everything first, then word count as above
+
+find […] -name ‘foo*’ ! -name ‘*bar*’ -type d
+-type d means only directories
+-type f means only files
+
+cat -d ‘.’ -f 2 [filename]
+get things from second column inside [filename]
+
+cat -d ‘.’ -f 2 [filename] | sort | uniq
+sort output and not duplicate 
+
+#GREP, SED , AWK:
+
+cat /proc/cpuinfo | grep processor | wc -l
+get how many processors
+
+grep -i […] […]
+case insensitive
+
+grep -v […] […]
+not matching 
+
+ls -l | grep -v […]
+list files with not matching […]
+
+grep -E “processor|core id|physical id” /proc/cpuinfo
+
+lstopo
+
+sed 
+(used to clean output, works line by line)
+ 
+sed ’s/[old]/[new]’ [file]
+
+sed ’s|[old]|[new]’ [file]
+
+sed ’s/[old]/[new]/g’ [file]
+
+echo day day | sed ’s/day/night/‘
+echo day day | sed ’s/day/night/g’
+echo day day | sed ’s/day/night/2’
+
+cat haiku.txt | sed ‘/day/d’
+delete line with ‘day’
+cat haiku.txt | sed ‘/^$/d’
+delete an empty line, ^ beginning of a line, $ end of a line
+
+cat haiku.txt | sed ’/day/a\ \n’
+substitute a new line after a line with ‘day’
+
+awk, or gawk
+(works line by line) 
+
+awk ‘/[pattern]/‘ [file]  == grep [pattern] [file]
+just print lines contain [pattern]
+
+awk ‘[pattern]/{print $0}’ [file]
+print the 0th field in output
+
+awk ‘[pattern]/{print $2*0.5}’ [file]
+awk can even do some simple calculations,
+multiply each 2nd field in output by 0.5
+
+awk ‘[pattern]/{print NF}’ [file]
+print number of fields
+
+awk ‘[pattern]/{print $NF}’ [file]
+print the last field
+
+awk ‘BEGIN{}/[pattern]/{} END{}’ [file]
+do some extra performance
+
+echo hello | awk ‘BEGIN{FS=“l”}/hello/{print NF}’
+
+find [] -name ‘[]’ -exec wc -l ‘{}’ \;
+find [] -name ‘[]’ -exec wc -l ‘{}’ \; -print
+
+awk ‘BEGIN{FS=“jo”;c=0; IGNORECASE=1} / Jo/ {c+=(NF-1)} END{print “jo” c} [file]
+field separator FS
+ 
+
+
+

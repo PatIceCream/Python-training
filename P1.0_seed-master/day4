@@ -1,0 +1,72 @@
+21/09/2017
+MHPC DAY 4
+
+CLUSTER
+
+#connecting to cluster
+
+ssh [name]@[ip]
+ssh [name]@[address]
+ssh [address] -l [name]
+
+#take public key from local machine
+#paste it to "authorozed_keys"
+#no need to enter password anymore
+
+ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+#for generating ssh keys on machine
+
+/home/jiwang/
+#prepare job, install packages, small space
+/scratch/jiwang/
+#job works in scratch
+/archive/
+
+#communication between local machine and cluster
+
+scp [path1] [path2]
+scp foo:[remote path] [local path]
+scp [local path] foo:[remote path]
+#copy up/downward on local machine
+
+rsync
+#
+rsync -e ssh foo:[path] [local path]
+      -arv
+-a preserves permissions
+-r copies sub directories
+-v print on screan
+
+module avail
+module load(unload)
+module purge
+#purge all loaded modules
+module list
+#showing already loeaded modules
+
+which [module name]
+#get exact path to module
+
+mpirun, mpiexec
+#mpirun is a script, mpiexec is a executable
+#used for running parallel job
+
+#PBS
+#portable bash system
+
+qstat -q
+#all the queue types
+
+qstat -u [name]
+
+qdel [job id]
+#each job has a unique ID
+
+,mem=???GB or :mem=???GB (check it out)
+means ???GB memory asked for each node
+
+#PBS -M [email address]
+
+env
+#get environment settings
+

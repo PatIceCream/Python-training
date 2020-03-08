@@ -1,0 +1,91 @@
+02/10/2017
+
+MHPC day 10
+
+Lec in UTS, H2bis room 3B
+
+Foundation on HPC
+
+#introduction
+
+key words
+hardware,software,problems to solve
+hpc providers & users
+
+number crunching on cpu
+FLOPS
+floating point operation per second
+exa 10^18
+peta 10^15
+tera 10^12
+giga 10^9
+
+FLOPS=clock-rate*number_of_FP_operation(per_clock_rate)*number_of_cores
+
+Real performance
+FLOPS/time measure
+
+HPL benchmark
+high performance linpack
+
+keywrods
+Rmax: laegest 
+Rpeak
+power
+Nmax: size of matrix
+
+HPCG:
+
+#exe1
+get peak performance for laptop
+cup: i7
+freq: 3.1GHz
+FLOP
+cores: 2
+
+#moving data
+
+IOPS vs FLOPS
+input/output operations per second
+
+Single Instruction Single Data
+Single Instruction Multiple Data
+MIMD
+
+shared/distributed memory
+uniform/non-uniform memory access
+UMA/NUMA
+
+cluster vs massive parallel processors(MPP)
+
+rack/socket distribution
+
+latency [micro sec]
+time to build up channel for data trans
+
+bandwidth [GB/sec]
+
+accelerators: GPU, Intel PHI
+
+#software
+
+speedup
+speedup(p) = time(1)/timpe(p)
+
+parallel efficiency
+efficiency = speedup(p)/p
+
+go to superlinear speedup?
+use cache!
+
+Amdahl's law
+sppedup(p) p/(1+(p-1)/s)
+you may be limited by linear fraction of your code
+
+Gustafon's law
+increase the parallel load, w.r.t. seriel part
+
+Scalability
+to get N times more work done on N processors
+
+strong/weak scaling
