@@ -46,29 +46,6 @@ tar xzf #unzip
 pwd #present working directory
 
 
-git
-open source distributed version control system; local or push online
->>how to fetch sth from online
-git clone #clone sth from an online hub with original file and .git
-git clone xxxxx yyy #rename
->>how to use git to vc
-change (or discard change), shown by run git status but nothing is recorded
--> stage (or unstage change), temporarily record the change 
--->commit, pernanently record the change
-by now, you got a modified dir and a permanent record of what have been done (add or delete) 
-and it can be push online
-
-git status
-git add/rm <file> #to stage
-git reset HEAD <file> # to unstage
-git check out --<file> # to discard change
-git remote -v #show origin
-git init
-git commit -m "aaaa"
-git checkout -b #create and swtich to a new branch
-git checkout
-git branch
-git push
 
 
 
