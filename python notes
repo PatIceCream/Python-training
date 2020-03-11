@@ -1,0 +1,4 @@
+text: put in "", exacly same as when you write sth
+numbers: write directly, python could show numbers or calculate the numbers directly
+variables: same as numbers
+***different elements seperated by comma and space, space will be add in the result of print directly. so try to avoid use comma and space
