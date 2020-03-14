@@ -3,3 +3,4 @@ es: what is root
 what is integer operation? (Bash itself does only integer operation
 is bash same as ashell?
 different mode of open(), change file type, how would open(file, "b") affect read and write function
+difference between list, tuple, set, dictionary, and frozenset (as parameter of sorted)
