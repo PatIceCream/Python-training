@@ -2,3 +2,36 @@ text: put in "", exacly same as when you write sth
 numbers: write directly, python could show numbers or calculate the numbers directly
 variables: same as numbers
 ***different elements seperated by comma and space, space will be add in the result of print directly. so try to avoid use comma and space
+argv: list & unpack
+
+to operate file: 
+> open() to get a  file object (from file name to file)
+>> defferent mode of file open: r / w / a / b
+> operate file when get the file object (goes into file)
+>>.read, print (xxx.read())
+>>.readline, print(xxx.readline())
+>>.seek: move the pointer in the file .seek(0,1)
+>>.truncate: erase file contect
+>>.write: erase and add content xxx.write()
+>>.close: save and close
+***more opearations on files
+
+functions:
+define a function and rerurn a value
+when define a function, note:
+>function name contains digits, letters and "_" only
+>function name followed by ()
+>arguments in () should be seperated by ,
+>argements should be unique
+>the line of def should be end with:
+>the second line should indent with 4 spaces
+>when end the function, remove indent
+when call/use a function, note:
+>use the correct function name
+>function name followed by ()
+>put correct amount of arguments in and seperate by ,
+
+
+
+
+
