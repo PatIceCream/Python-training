@@ -2,3 +2,4 @@ explicitly state: what is programming environment
 es: what is root
 what is integer operation? (Bash itself does only integer operation
 is bash same as ashell?
+different mode of open(), change file type, how would open(file, "b") affect read and write function
