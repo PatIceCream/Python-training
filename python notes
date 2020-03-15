@@ -33,5 +33,78 @@ when call/use a function, note:
 
 
 
+Keywords:
+and
+if, elif, else
+print
+try...except...else...finally...
+>>> except #all errors will be caught
+>>> except (error) as e # put error in a variable
+>>> except (error, error2, error3) as e # only one variable can be used
+del
+pass: null operation
+del: delete objects (in python everything is an object, using del to delet variable, list, part of the list....)
+is: return True/False 
+from
+or:
+iterable: for example, a list []
+gernerator: (a, b, c...), perform iterate only once
+yield: provide elements of generator when for... is used
+return
+exec(): execute a program, which can be put as a string or code object in arg1
+for
+assert: check a given logic is true or false. program execution proceeds only when Ture and return AssertError when false
+with: 2 related oerations to execute in pair with a block of code in between
+raise: manually raise an error
+as: with .... as...., to name the resources; bind a module to a new name. import ... as...
+break: terminate a loop containing break statement
+continue: skip the rest of the loop for the current iteration and enter the next
+lamba: to create an anonymous function, frequently use as a high-order function(take one or more functions as arguments 
+  ans return one or more functions)
+?global
+?class
+
+Data Type
+True/False
+None: null value, same as 0, False, empty string, None itself is a Data Type None
+string
+number
+float
+list
+
+Escape sequence
+\\
+\'
+\"
+\a
+\b
+\f
+\n
+\t
+\r
+\v
+
+String Formats
+%d
+%r
+%s
+%i
+%o
+%u
+%x
+%X
+%e
+%E
+%f
+%F
+%g
+%G
+%c
+%%
+
++ - * ** / // % < > <= >= == **= != <> [] {} @ , : . = ; -= *= //= %=
+
+
+
 
 
