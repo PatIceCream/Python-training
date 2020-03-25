@@ -1,0 +1,49 @@
+enumerate(list, [start_index])
+  return the value in a sequence and at the same time an index (which you can set the start value)
+  for i, value in enumerate(lista, 1)
+
+abs()
+  return the absolute value
+  
+binary:
+  1111111 = 2**7-1
+  10000000 =2**7
+  
+a=12   (1100)
+b=11   (1011)
+a&b=8  (1000)
+a|b=15 (1111)
+a^b=7  (0111)
+-a=-12 (0011)**
+a<<2   (110000)
+a>>2   (11)
+
++=  -=  *=  /=  **=  %=  //=
+
+list[a]  list[a:b]  list[a:b:c]
+string[a]  string[a:b]  string[a:b:c]
+tuple[a]  tuple[a:b]  tuple[a:b:c]
+range(a,b,c)
+dict[a]
+dict.get[a]
+
+
+
+time complexity
+space complexity
+
+
+
+
+  
+
+
+
+
+
+understand what kind of datatype you need to work on
+  if a integer needed to be reversed, you actually reversing a string and need str() first
+ 
+dictionary could help to reduce loop and thus if...else...
+
+set boundries first and take special cases into consideration
